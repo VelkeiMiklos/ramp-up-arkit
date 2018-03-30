@@ -13,6 +13,7 @@ import ARKit
 class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    var selectedRampName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,12 +82,18 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
     @IBAction func onRampBtnPressed(_ sender: UIButton) {
         //Saját konstruktor
         let rampPickerVC = RampPickerVC(size: CGSize(width: 250, height: 500))
+        rampPickerVC.rampPlacerVC = self
         rampPickerVC.modalPresentationStyle = .popover
         rampPickerVC.popoverPresentationController?.delegate = self
         present(rampPickerVC, animated: true, completion: nil)
         rampPickerVC.popoverPresentationController?.sourceView = sender//gombtól
         rampPickerVC.popoverPresentationController?.sourceRect = sender.bounds
         
+    }
+    
+    //Mit választottunk ki a pop-upról
+    func onRampSelected(rampName: String){
+        selectedRampName = rampName
     }
     
     //.none akkor nem lez fullscreen a popup
