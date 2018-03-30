@@ -25,7 +25,8 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/pipe.dae")!
+        let scene = SCNScene(named: "art.scnassets/main.scn")!
+        sceneView.autoenablesDefaultLighting = true
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -99,5 +100,32 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
     //.none akkor nem lez fullscreen a popup
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+    //Ahova érint a képernyőn
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        
+        //Location koordinátája
+        let results = sceneView.hitTest(touch.location(in: sceneView), types: [.featurePoint])
+        
+        guard let hitFeature = results.last else { return } // tap resultja, néha nem talál, pl túl sötét van ezért kell a guard let és returnolni
+        let hitTransform = SCNMatrix4(hitFeature.worldTransform)//transzformálni
+        let hitPosition = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)//pozíció
+        placeRamp(position: hitPosition)
+    }
+    
+    //Kiválasztott Ramp elhelyezése
+    func placeRamp(position: SCNVector3){
+        
+        if let rampName = selectedRampName{
+          //  controls.isHidden = false
+            let ramp = Ramp.getRampForName(rampName: rampName)//Ramp név
+            
+           // selectedRamp = ramp
+            ramp.position = position//hova érintettem a képernyőn
+            ramp.scale = SCNVector3Make(0.01, 0.01, 0.01)
+            sceneView.scene.rootNode.addChildNode(ramp)
+            
+        }
     }
 }

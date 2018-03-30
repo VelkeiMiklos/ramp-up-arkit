@@ -46,33 +46,20 @@ class RampPickerVC: UIViewController{
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         sceneView.addGestureRecognizer(tap)
         
-        //Rotate action
-        let rotate = SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(0.01 * Double.pi), z: 0, duration: 0.1))
+        //Pipe
+        let pipe = Ramp.getPipe()
+        Ramp.startRotation(node: pipe)
+        scene?.rootNode.addChildNode(pipe)
         
-        //Egy pipe scene
-        var obj = SCNScene(named: "art.scnassets/pipe.dae")
-        var node = obj?.rootNode.childNode(withName: "pipe", recursively: true)//art.scnassets-be pipe azonosító
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0022, 0.0022, 0.0022)//Méret
-        node?.position = SCNVector3Make(-1, 0.7, -1)//Méret
-        scene?.rootNode.addChildNode(node!)
+        //Pyramid
+        let pyramid = Ramp.getPyramid()
+        Ramp.startRotation(node: pyramid)
+        scene?.rootNode.addChildNode(pyramid)
         
-        //Egy pyramid scene
-        obj = SCNScene(named: "art.scnassets/pyramid.dae")
-        node = obj?.rootNode.childNode(withName: "pyramid", recursively: true)//art.scnassets-be pipe azonosító
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)//Méret
-        node?.position = SCNVector3Make(-1, -0.45, -1)//Méret
-        scene?.rootNode.addChildNode(node!)
-        
-        
-        obj = SCNScene(named: "art.scnassets/quarter.dae")
-        node = obj?.rootNode.childNode(withName: "quarter", recursively: true)//art.scnassets-be pipe azonosító
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)//Méret
-        node?.position = SCNVector3Make(-1, -2.2, -1)//Méret
-        scene?.rootNode.addChildNode(node!)
-        
+        //Quarter
+        let quarter = Ramp.getQuarter()
+        Ramp.startRotation(node: quarter)
+        scene?.rootNode.addChildNode(quarter)
     }
     
     @objc func handleTap(_ gestureRecognizer: UIGestureRecognizer){
