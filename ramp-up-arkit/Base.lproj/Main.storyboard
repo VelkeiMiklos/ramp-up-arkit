@@ -32,20 +32,50 @@
                                     <action selector="onRampBtnPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="14F-cp-Jcf"/>
                                 </connections>
                             </button>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GSj-m1-0ZQ">
+                                <rect key="frame" x="10" y="625" width="158" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niR-v9-5Ve">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                        <state key="normal" image="removeButton"/>
+                                        <connections>
+                                            <action selector="removeBtnWasPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="AUZ-PL-DZ4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ6-fa-Bca">
+                                        <rect key="frame" x="42" y="0.0" width="32" height="32"/>
+                                        <state key="normal" image="rotateButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiS-ou-vUo">
+                                        <rect key="frame" x="84" y="0.0" width="32" height="32"/>
+                                        <state key="normal" image="upArrow"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dK-DY-AOu">
+                                        <rect key="frame" x="126" y="0.0" width="32" height="32"/>
+                                        <state key="normal" image="downArrow"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OsD-N2-x7V" firstAttribute="bottom" secondItem="TgB-pW-8PQ" secondAttribute="bottom" constant="10" id="0jg-Sw-FrZ"/>
                             <constraint firstItem="OsD-N2-x7V" firstAttribute="trailing" secondItem="TgB-pW-8PQ" secondAttribute="trailing" constant="10" id="1w3-VI-oAz"/>
                             <constraint firstItem="Yor-1j-8fb" firstAttribute="trailing" secondItem="OsD-N2-x7V" secondAttribute="trailing" id="5fe-4h-XYk"/>
+                            <constraint firstItem="OsD-N2-x7V" firstAttribute="bottom" secondItem="GSj-m1-0ZQ" secondAttribute="bottom" constant="10" id="D62-kD-4XM"/>
                             <constraint firstItem="Yor-1j-8fb" firstAttribute="top" secondItem="aFb-TR-PVr" secondAttribute="top" id="FKH-2n-PiK"/>
+                            <constraint firstItem="GSj-m1-0ZQ" firstAttribute="leading" secondItem="OsD-N2-x7V" secondAttribute="leading" constant="10" id="Ume-Lj-y4I"/>
                             <constraint firstItem="Yor-1j-8fb" firstAttribute="leading" secondItem="OsD-N2-x7V" secondAttribute="leading" id="lHN-Xd-i80"/>
                             <constraint firstItem="Yor-1j-8fb" firstAttribute="bottom" secondItem="OsD-N2-x7V" secondAttribute="bottom" id="y9V-IA-4Tu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OsD-N2-x7V"/>
                     </view>
                     <connections>
+                        <outlet property="controls" destination="GSj-m1-0ZQ" id="cwe-GX-oxi"/>
+                        <outlet property="downBtn" destination="2dK-DY-AOu" id="e7X-QJ-tDN"/>
+                        <outlet property="rotateBtn" destination="ZZ6-fa-Bca" id="zKz-pk-CoI"/>
                         <outlet property="sceneView" destination="Yor-1j-8fb" id="gmH-Tv-nQz"/>
+                        <outlet property="upBtn" destination="OiS-ou-vUo" id="YOr-Yi-Aak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -54,6 +84,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="downArrow" width="32" height="32"/>
         <image name="rampIcon" width="107" height="71"/>
+        <image name="removeButton" width="32" height="32"/>
+        <image name="rotateButton" width="32" height="32"/>
+        <image name="upArrow" width="32" height="32"/>
     </resources>
 </document>
