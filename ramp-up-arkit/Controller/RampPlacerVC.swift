@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class RampPlacerVC: UIViewController, ARSCNViewDelegate {
+class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -76,5 +76,21 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+
+    @IBAction func onRampBtnPressed(_ sender: UIButton) {
+        //Saját konstruktor
+        let rampPickerVC = RampPickerVC(size: CGSize(width: 250, height: 500))
+        rampPickerVC.modalPresentationStyle = .popover
+        rampPickerVC.popoverPresentationController?.delegate = self
+        present(rampPickerVC, animated: true, completion: nil)
+        rampPickerVC.popoverPresentationController?.sourceView = sender//gombtól
+        rampPickerVC.popoverPresentationController?.sourceRect = sender.bounds
+        
+    }
+    
+    //.none akkor nem lez fullscreen a popup
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

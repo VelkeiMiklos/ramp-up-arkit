@@ -13,6 +13,7 @@
 		F54F3149206E370B002A28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54F3147206E370B002A28E7 /* Main.storyboard */; };
 		F54F314B206E370B002A28E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54F314A206E370B002A28E7 /* Assets.xcassets */; };
 		F54F314E206E370B002A28E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54F314C206E370B002A28E7 /* LaunchScreen.storyboard */; };
+		F54F3157206E3A84002A28E7 /* RampPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F3156206E3A84002A28E7 /* RampPickerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F54F314A206E370B002A28E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F54F314D206E370B002A28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F54F314F206E370B002A28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F54F3156206E3A84002A28E7 /* RampPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampPickerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		F54F3140206E370B002A28E7 /* ramp-up-arkit */ = {
 			isa = PBXGroup;
 			children = (
+				F54F3155206E3A56002A28E7 /* Controller */,
 				F54F3141206E370B002A28E7 /* AppDelegate.swift */,
 				F54F3143206E370B002A28E7 /* art.scnassets */,
-				F54F3145206E370B002A28E7 /* RampPlacerVC.swift */,
 				F54F3147206E370B002A28E7 /* Main.storyboard */,
 				F54F314A206E370B002A28E7 /* Assets.xcassets */,
 				F54F314C206E370B002A28E7 /* LaunchScreen.storyboard */,
 				F54F314F206E370B002A28E7 /* Info.plist */,
 			);
 			path = "ramp-up-arkit";
+			sourceTree = "<group>";
+		};
+		F54F3155206E3A56002A28E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F54F3145206E370B002A28E7 /* RampPlacerVC.swift */,
+				F54F3156206E3A84002A28E7 /* RampPickerVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54F3146206E370B002A28E7 /* RampPlacerVC.swift in Sources */,
+				F54F3157206E3A84002A28E7 /* RampPickerVC.swift in Sources */,
 				F54F3142206E370B002A28E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
